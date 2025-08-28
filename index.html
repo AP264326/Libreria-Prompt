@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Library - Consulenza Energetica</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/mammoth@1.4.2/mammoth.browser.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">📚 Prompt Library</h1>
+                <div class="header-actions">
+                    <button id="favorites-toggle" class="btn-blue" aria-label="Mostra solo preferiti">
+                        ⭐ I miei preferiti
+                    </button>
+                    <button id="import-docx" class="btn-blue" aria-label="Importa file Word">
+                        📄 Importa .docx
+                    </button>
+                    <input type="file" id="file-input" accept=".docx" style="display: none;" aria-label="Seleziona file Word">
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="form-control search-input" 
+                        placeholder="Cerca prompt..."
+                        aria-label="Campo di ricerca"
+                    >
+                </div>
+                <div class="filter-container">
+                    <select id="category-filter" class="form-control" aria-label="Filtra per categoria">
+                        <option value="">Tutte le categorie</option>
+                        <option value="Scouting">Scouting</option>
+                        <option value="Profilazione Cliente B2B (Identikit)">Profilazione Cliente B2B</option>
+                        <option value="Prospecting">Prospecting</option>
+                        <option value="Proposition">Proposition</option>
+                        <option value="Simulatore Elettrico">Simulatore Elettrico</option>
+                        <option value="Preventivatore Simulatore FV">Preventivatore FV</option>
+                        <option value="Lettura Consumi Next">Lettura Consumi Next</option>
+                        <option value="Negoziazione/Follow-up">Negoziazione/Follow-up</option>
+                        <option value="Gestione Customer Base">Gestione Customer Base</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div id="prompts-grid" class="prompts-grid">
+                <!-- I prompt verranno inseriti qui dinamicamente -->
+            </div>
+            <div id="no-results" class="no-results hidden">
+                <p>Nessun prompt trovato per i criteri di ricerca selezionati.</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast hidden" role="alert" aria-live="polite">
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
